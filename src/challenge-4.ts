@@ -2,10 +2,6 @@
 // you don't need to specify the different types this function expects.
 //
 // `unknown` tells the TS compiler not to assume anything about the input
-interface JsonArray extends Array<string | number | boolean | Date | ValidJSONObject | JsonArray> { }
-interface ValidJSONObject {
-	[x: string]: string | number | boolean | Date | JsonArray
-}
 
 export const stringify = (input: unknown): string => {
    if (typeof input === 'undefined')
@@ -52,3 +48,8 @@ export const stringify = (input: unknown): string => {
 - Can you give an example of a place where Generics would help the TypeScript type-checker (and therefore you)? 
     - The main reason to use Generics is to use types, classes, or interfaces as parameters. This way you can reuse code for different types of input.  An example where this is useful is when defining a relationship between input and output parameter types. In a function definition, using Generics allows you to make sure that input and output use the same type even if their I/O's are different. `function foo <T>(input: T[]): T { … }` 
 */
+
+interface JsonArray extends Array<string | number | boolean | Date | ValidJSONObject | JsonArray> { }
+interface ValidJSONObject {
+	[x: string]: string | number | boolean | Date | JsonArray
+}
