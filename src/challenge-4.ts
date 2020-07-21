@@ -40,13 +40,19 @@ export const stringify = (input: unknown): string => {
 
 /*
 - What is the difference between unknown and any?
-    - Both types are top types yet,`unknown` is much less permissible than `any`.`Unknown` types require to narrow down your type definitions in order to perform most operations in it, while `any` does not require any form of checking in order to perform operations onto it.  You can only assign `unknown` values to other `unknown` values or to `any` values. Any assignment of an `unknown` type to another type that not `unknown` or `any` will error out. This forces us to perform a type check before doing arbitrary operations on an `unknown` value. This way we know that the operation we are trying to perform will only happen if the `unknown` value is  of a known value. 
+    - Both types are top types yet,`unknown` is much less permissible than `any`.`Unknown` types require to narrow down your type definitions in order
+     to perform most operations in it, while `any` does not require any form of checking in order to perform operations onto it.  You can only assign 
+     `unknown` values to other `unknown` values or to `any` values. Any assignment of an `unknown` type to another type that not `unknown` or `any` will 
+     error out. This forces us to perform a type check before doing arbitrary operations on an `unknown` value. This way we know that the operation we 
+     are trying to perform will only happen if the `unknown` value is  of a known value. 
 
 - What are Record, A and B in Record<A, B>?
     - Parameterized types. A and B are to Record, what C and D are to `function foo (C,D)`. 
 
 - Can you give an example of a place where Generics would help the TypeScript type-checker (and therefore you)? 
-    - The main reason to use Generics is to use types, classes, or interfaces as parameters. This way you can reuse code for different types of input.  An example where this is useful is when defining a relationship between input and output parameter types. In a function definition, using Generics allows you to make sure that input and output use the same type even if their I/O's are different. `function foo <T>(input: T[]): T { … }` 
+    - The main reason to use Generics is to use types, classes, or interfaces as parameters. This way you can reuse code for different types of input.
+      An example where this is useful is when defining a relationship between input and output parameter types. In a function definition, using Generics 
+      allows you to make sure that input and output use the same type even if their I/O's are different. `function foo <T>(input: T[]): T { … }` 
 */
 
 interface JsonArray extends Array<string | number | boolean | Date | ValidJSONObject | JsonArray> { }
